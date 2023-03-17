@@ -115,7 +115,7 @@ class Prompt(object):
 				return True
 		return False
 
-	def _request(self, messages : list[dict[str,str]], num_tries : int = 3) -> str:
+	def _request(self, messages : list[dict[str,str]], num_tries : int = 10) -> str:
 		for i in range(num_tries):
 			try:
 				completion = openai.ChatCompletion.create(
