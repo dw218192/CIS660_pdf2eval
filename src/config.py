@@ -44,11 +44,18 @@ def set_api_key(val : str):
 	with open(API_KEY_FILE, 'w') as f:
 		f.write(val)
 
-with open(CONFIG_FILE, 'r', encoding = 'utf-8') as f:
-	data = json.load(f)
+if os.path.exists(CONFIG_FILE):
+	with open(CONFIG_FILE, 'r', encoding = 'utf-8') as f:
+		data = json.load(f)
+else:
+	data = {}
 
 def get(name : str):
-	return data[name]
+	if name in data:
+		return data[name]
+	else:
+		return ''
+
 def set(name : str, val):
 	data[name] = val
 
