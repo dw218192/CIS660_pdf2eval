@@ -1,4 +1,7 @@
 .vscode/
 src/*.txt
+src/*.json
+src/*.bat
 src/__pycache__/
 bin/*.txt
+bin/*.json
