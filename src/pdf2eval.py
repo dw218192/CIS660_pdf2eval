@@ -1,3 +1,4 @@
+# todo: fix bug when user clicks process again after attach
 import os
 import sys
 from queue import Queue
@@ -222,6 +223,7 @@ class Window(QtWidgets.QMainWindow):
 		self.paraphraseBtn.clicked.connect(self.redo_all)
 		self.apiKeyText.setText(openai.api_key)
 		self.apiKeyText.editingFinished.connect(self.set_api_key)
+		self.sampleWritingText.setPlainText(config.get(config.WRITING_SAMPLE))
 		self.sampleWritingText.textChanged.connect(self.set_writing_sample)
 
 		self.set_pdf_dependent_btns(False)
